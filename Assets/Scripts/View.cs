@@ -11,15 +11,18 @@ public class View : MonoBehaviour
     [SerializeField] private RectTransform contentRT, menuPanelRT;
     [SerializeField] private InputField inputField;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private Vector2 hiddenPos, showPos;
-
+    
+    private Vector2 hiddenPos, showPos;
     private bool togglesOn = false;
     private bool eyesOn = true;
     private Vector2 targetPosition;
 
     void Start()
     {
-        Screen.SetResolution(420, 540, false);
+        Screen.SetResolution(1000, 900, false);
+
+        hiddenPos = new Vector2(menuPanelRT.sizeDelta.x / 2, 0);
+        showPos = -hiddenPos;
 
         foreach (UIImage eye in eyes)
         {
